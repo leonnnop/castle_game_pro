@@ -9,9 +9,9 @@ public class Game {
     private HashMap<String, Handler> handlers = new HashMap<String,Handler>();    
     public Game() 
     {
-    	handlers.put("go", new HandlerGo(this));
-    	handlers.put("bye", new HandlerBye(this));
-    	handlers.put("help", new HandlerHelp(this));
+    	handlers.put("go", new HandlerGo());
+    	handlers.put("bye", new HandlerBye());
+    	handlers.put("help", new HandlerHelp());
         createRooms();
     }
 
@@ -43,14 +43,6 @@ public class Game {
     private void printWelcome() {
     	showPrompt();
     }
-
-    // 以下为用户命令
-
-//    private void printHelp() 
-//    {
-//        System.out.print("迷路了吗？你可以做的命令有：go bye help");
-//        System.out.println("如：\tgo east");
-//    }
 
     public void goRoom(String direction) 
     {
@@ -97,6 +89,18 @@ public class Game {
 		game.printWelcome();
 		game.play();
         System.out.println("感谢您的光临。再见！");
+	}
+	
+	public class HandlerGo extends Handler {
+
+		public HandlerGo(){
+		}
+		
+		@Override
+		public void doCmd(String word) {
+			goRoom(word);
+		}
+
 	}
 
 }

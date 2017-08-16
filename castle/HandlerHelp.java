@@ -2,8 +2,7 @@ package castle;
 
 public class HandlerHelp extends Handler {
 
-	public HandlerHelp(Game game){
-		super(game);
+	public HandlerHelp(){
 	}
 	
 	@Override
